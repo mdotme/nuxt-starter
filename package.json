@@ -12,21 +12,21 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.5.4",
-    "nuxt": "^3.13.1",
-    "pinia": "^2.2.2",
-    "vue": "^3.5.3",
-    "vue-router": "^4.4.3"
+    "@pinia/nuxt": "^0.5.5",
+    "nuxt": "^3.14.1592",
+    "pinia": "^2.3.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^0.5.6",
-    "@nuxt/eslint-config": "^0.5.6",
-    "@nuxtjs/tailwindcss": "^6.12.1",
-    "eslint": "^9.10.0",
+    "@nuxt/eslint": "^0.5.7",
+    "@nuxt/eslint-config": "^0.5.7",
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint-plugin-tailwindcss": "^3.17.4",
+    "eslint-plugin-tailwindcss": "^3.17.5",
     "vite-plugin-eslint": "^1.8.1"
   },
   "pnpm": {
