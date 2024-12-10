@@ -1,22 +1,14 @@
-FROM node:20.11-alpine as builder
+FROM node:22.11-alpine 
 
-WORKDIR /usr/src/nuxt-starter
+WORKDIR /usr/src/app
 
 COPY package*.json ./
 COPY .env ./
 
-RUN npm i
-
-RUN npm run build
-
 COPY . .
 
-EXPOSE 3000
+RUN yarn install
 
-FROM node:20.11-alpine
+RUN yarn build
 
-WORKDIR /usr/src/nuxt-starter
-
-COPY --from=builder /usr/src/nuxt-starter .
-
-ENTRYPOINT ["node", ".output/server/index.mjs"]
+CMD ["node", ".output/server/index.mjs"]

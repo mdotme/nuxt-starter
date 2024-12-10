@@ -3,3 +3,15 @@ node_modules
 # Ignore development files and directories
 .eslintignore
 .prettierrc.js
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+.vscode
+
+

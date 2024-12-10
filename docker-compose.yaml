@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   nuxt-starter-app:
     container_name: nuxt-starter
@@ -8,4 +6,4 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - ${PORT}:${PORT}
