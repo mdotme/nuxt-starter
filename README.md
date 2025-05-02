@@ -1,40 +1,40 @@
-# Nuxt3 Boilerplate with Vite, TypeScript, ESLint, Prettier, Tailwind CSS, Pinia & Docker
+# ✨ Nuxt 3 starter ✨
 
-This is a boilerplate for starting Nuxt3 projects with Vite, TypeScript, ESLint, Stylistic, Tailwind CSS, Pinia, Docker, and custom composable utilities for API handling (`useApi`) and metadata management (`useMeta`).
+This is a boilerplate for starting Nuxt3 projects with Vite, TypeScript, ESLint, Tailwind CSS, Pinia and Docker.
 
 ## Features
 
-- **Vite**: Utilize the fast build tool for web development.
-- **TypeScript**: Write safer and more maintainable code with TypeScript.
-- **ESLint & Stylistic**: Maintain code quality and consistency with ESLint (Flat config) and Stylistic.
-- **Tailwind CSS**: Rapidly build custom user interfaces with Tailwind CSS.
-- **Pinia**: Best store for vue & nuxt
-- **Docker**: Containerize your application for easy deployment and scalability.
-- **Custom Composables**: Simplify API handling and metadata management with custom composable utilities like `useApi` and `useMeta`.
+- **Vite ⚡**: Utilize the fast build tool for web development.
+- **TypeScript 🛡️**: Write safer and more maintainable code with TypeScript.
+- **ESLint & Stylistic 🧹**: Maintain code quality and consistency with ESLint (Flat config) and Stylistic.
+- **Tailwind CSS 🌬️**: Rapidly build custom user interfaces with Tailwind CSS.
+- **Pinia 🍍**: Best store for Vue & Nuxt.
+- **Docker 🐳**: Containerize your application for easy deployment and scalability.
+- **Custom Composables 🛠️**: Simplify API handling and metadata management with custom composable utilities like `useApi`.
 
 ## Prerequisites
 
 Before getting started, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v18 or higher but LTS v20.11 recommended)
+- [Node.js](https://nodejs.org/) (v20 or higher but LTS `v22.14` recommended)
 - [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/) or [Yarn](https://yarnpkg.com/) package manager (pnpm recommended)
 - [Docker](https://www.docker.com/) (if you plan to use Docker for containerization)
 
 ## Installation
 
-1. Clone this repository to your local machine using the following command:
+1. Clone the repo:
 
 ```bash
-git clone https://github.com/manuchekhr32/nuxt-starter
+git clone https://github.com/mdotme/nuxt-starter my-awesome-project
 ```
 
 2. Navigate to the cloned directory:
 
 ```bash
-cd nuxt3-starter
+cd my-awesome-project
 ```
 
-3. Install the project dependencies using NPM:
+3. Install deps:
 
 ```bash
 pnpm i
@@ -42,55 +42,139 @@ pnpm i
 
 ## Configuration
 
-1. In the root directory of the project, you will find a file named `.env.example`.
-2. Make a copy of this file and rename it to `.env`:
+1. In the root directory, there is example env file: `.env.example`.
+2. Copy to `.env`:
 
 ```bash
 cp .env.example .env
 ```
 
-3. Open the newly created `.env` file in a text editor and update the necessary configuration values according to your project.
+3. Modify `.env`.
 
-- **ESLint & Prettier**: Configuration files for ESLint and Prettier can be found in the project root.
+- **ESLint & Prettier**: Configuration files for ESLint in `eslint.config.mts` file.
 - **Tailwind CSS**: Customize Tailwind CSS settings in the `./assets/css/tailwind.css` file.
 
-## Usage
+## Project structure
 
-To start the development server, run the following command:
+Sample flat project structure for Nuxt3. If your project is more complex and bigger than simple landing page consider using [Nuxt layers](https://nuxt.com/docs/getting-started/layers).
+
+Sample vue file:
+
+```vue
+<script setup lang="ts">
+interface Props {
+  loading?: boolean; // Boolean props should be optional
+}
+const props = defineProps<Props>();
+
+const emit = defineEmits<{
+  submit: [data: Record<string, any>];
+}>();
+
+// Project provided first
+const { $api } = useNuxtApp();
+const route = useRoute();
+const { t } = useI18n();
+const localePath = useLocalePath()
+// Custom composables
+const api = useApi()
+// Stores
+const authStore = useAuthStore() // Name just store if it's related to store like Login.vue
+
+// Other stuff
+const data = ref()
+
+function sayHi() {
+  console.log("HII")
+}
+
+const getData = computed(() => data.value)
+
+watch(data, () => {
+  console.log("Do something")
+})
+const
+</script>
+
+<template>...</template>
+
+<style scoped>
+...
+</style>
+```
+
+Directories & Files:
 
 ```
-pnpm dev
+/my-awesome-project
+  ├── assets/
+  │    ├── css/
+  │    ├── fonts/
+  │    └── images/
+  │
+  ├── composables/
+  │    ├── useApi.ts
+  │    ├── useApiFetch.ts
+  │
+  ├── layouts/
+  │    ├── default.vue
+  │    └── auth.vue
+  │
+  ├── middleware/
+  │    └── auth.global.ts
+  │
+  ├── pages/
+  │    ├── index.vue
+  │    ├── login.vue
+  │    ├── register.vue
+  │    └── profile.vue
+  │
+  ├── plugins/
+  │    └── api.ts
+  │
+  ├── public/
+  │    └── favicon.ico
+  │
+  ├── stores/
+  │    ├── auth.store.ts
+  │    └── user.store.ts
+  │
+  ├── types/
+  │    ├── auth.types.ts
+  │    ├── common.types.ts
+  │    └── enums/
+  │         ├── roles.enum.ts
+  │         └── status.enum.ts
+  │
+  ├── components/
+  │    ├── Auth/
+  │    │    ├── LoginForm.vue
+  │    │    └── RegisterForm.vue
+  │    └── User/
+  │         └── ProfileCard.vue
+  │
+  ├── utils/
+  │    ├── sum.util.ts
+  │    └── format-date.util.ts
+  │
+  ├── constants/
+  │    ├── maska.const.ts
+  │    └── regexes.const.ts
+  │
+  ├── app.vue
+  ├── error.vue
+  ├── nuxt.config.ts
+  ...
 ```
 
-This command will compile the project and launch a local development server. Access `http://localhost:3000` in your browser to view the application.
-
-### Running with Docker
-
-If you prefer to use Docker for running the project, make sure Docker is installed on your machine. Then, follow these steps:
-
-1. Build the Docker image:
-
-```bash
-docker build -t nuxt-starter .
-```
-
-2. Start a Docker container using the built image:
-
-```bash
-docker run -p 3000:3000 nuxt-starter
-```
-
-This will launch the application inside a Docker container. Access `http://localhost:3000` in your browser to view the application.
-
-## Building for Production
-
-To build the project for production, use the following command:
-
-```
-pnpm build
-```
-
-The optimized and minified code will be generated in the `dist` directory.
+- Composable files must be same as composable function names (`useCamelCase.ts`)
+- Middlewares must be `kebab-case.ts`
+- Stores must be `kebab-case.store.ts` with store suffix
+- Types must be `kebab-case.types.ts` with types suffix
+- Enums must be inside types directory and `kebab-case.enum.ts` with enum suffix
+- Directories and component names inside `components/` directory all must be `Pascal/Case.vue`
+- Utilities must be `kebab-case.util.ts` with util prefix
+- Constants must be `kebab-case.const.ts` with const prefix
 
 ## Contributing
 
