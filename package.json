@@ -13,20 +13,19 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.5",
-    "nuxt": "^3.14.1592",
-    "pinia": "^2.3.0",
+    "nuxt": "^3.17.1",
+    "pinia": "^2.3.1",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@nuxt/eslint": "^0.5.7",
     "@nuxt/eslint-config": "^0.5.7",
-    "@nuxtjs/tailwindcss": "^6.12.2",
-    "eslint": "^9.16.0",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "eslint": "^9.25.1",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint-plugin-tailwindcss": "^3.17.5",
     "vite-plugin-eslint": "^1.8.1"
   },
   "pnpm": {

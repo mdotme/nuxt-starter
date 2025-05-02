@@ -1,11 +1,9 @@
 import simpleImportSort from "eslint-plugin-simple-import-sort";
-import { createConfigForNuxt } from "@nuxt/eslint-config/flat";
 import prettierPlug from "eslint-plugin-prettier/recommended";
-import tailwindPlug from "eslint-plugin-tailwindcss";
+import withNuxt from "./.nuxt/eslint.config.mjs";
 
-export default createConfigForNuxt({
+export default withNuxt({
   files: [
-    "./assets/**/*.css",
     "./composables/**/*.{ts,tsx}",
     "./components/**/*.{vue,ts,tsx}",
     "./layouts/**/*.vue",
@@ -13,20 +11,17 @@ export default createConfigForNuxt({
     "./stores/**/*.ts",
     "./server/**/*.ts",
     "./nuxt.config.ts",
+    "./app.config.ts",
     "./eslint.config.{mjs,js,cjs}",
     "./app.vue",
     "./error.vue",
-    "./tailwind.config.{ts,js}",
+    "./layers/**/*.{ts,vue}",
   ],
   rules: {
     "no-console": "warn",
   },
 })
-  .prepend(
-    prettierPlug,
-    simpleImportSort.configs,
-    tailwindPlug.configs["flat/recommended"],
-  )
+  .prepend(prettierPlug, simpleImportSort.configs)
   .override("nuxt/typescript/rules", {
     rules: {
       "@typescript-eslint/no-unused-vars": "warn",
