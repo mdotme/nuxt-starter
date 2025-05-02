@@ -1,99 +1,58 @@
-import type { NitroFetchRequest } from "nitropack";
-import type { FetchOptions } from "ofetch";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { FetchRequest, FetchOptions } from "ofetch";
 
-export const useApi = (apiUrl?: string) => {
-  const baseURL = apiUrl || (import.meta.env.VITE_API_BASE_URL as string);
+export function useApi() {
+  const { $api } = useNuxtApp();
 
-  function $service(options?: FetchOptions) {
-    // You can add your global request headers
-    // eslint-disable-next-line
-    const headers: Record<string, any> = {}
-    Object.assign(headers, options?.headers);
-    return $fetch.create({
+  function get<T = any>(
+    url: FetchRequest,
+    options?: Omit<FetchOptions<"json">, "method">,
+  ) {
+    return $api<T>(url, { ...options, method: "GET" });
+  }
+
+  function post<T = any, D = any>(
+    url: FetchRequest,
+    data?: D,
+    options?: Omit<FetchOptions<"json">, "body" | "method">,
+  ) {
+    return $api<T>(url, {
       ...options,
-      baseURL,
-      headers,
+      method: "POST",
+      body: data ?? undefined,
     });
   }
 
-  function $get<T = never>(
-    endpoint: NitroFetchRequest,
-    options?: FetchOptions,
-  ): Promise<T> {
-    return new Promise((resolve, reject) => {
-      $service(options)(endpoint)
-        // eslint-disable-next-line
-        .then((response: T | any) => {
-          resolve(response);
-        })
-        .catch((error) => {
-          reject(error.response);
-        });
+  function put<T = any, D = any>(
+    url: FetchRequest,
+    data?: D,
+    options?: Omit<FetchOptions<"json">, "body" | "method">,
+  ) {
+    return $api<T>(url, {
+      ...options,
+      method: "PUT",
+      body: data ?? undefined,
     });
   }
 
-  function $post<T = never>(
-    endpoint: NitroFetchRequest,
-    options?: FetchOptions,
-  ): Promise<T> {
-    return new Promise((resolve, reject) => {
-      $service({ ...options, method: "POST" })(endpoint)
-        // eslint-disable-next-line
-        .then((response: T | any) => {
-          resolve(response);
-        })
-        .catch((error) => reject(error.response));
+  function patch<T = any, D = any>(
+    url: FetchRequest,
+    data?: D,
+    options?: Omit<FetchOptions<"json">, "body" | "method">,
+  ) {
+    return $api<T>(url, {
+      ...options,
+      method: "PATCH",
+      body: data ?? undefined,
     });
   }
 
-  function $put<T = never>(
-    endpoint: NitroFetchRequest,
-    options?: FetchOptions,
-  ): Promise<T> {
-    return new Promise((resolve, reject) => {
-      $service({ ...options, method: "PUT" })(endpoint)
-        // eslint-disable-next-line
-        .then((response: T | any) => {
-          resolve(response);
-        })
-        .catch((error) => reject(error.response));
-    });
+  function $delete<T = any>(
+    url: FetchRequest,
+    options?: Omit<FetchOptions<"json">, "method">,
+  ) {
+    return $api<T>(url, { ...options, method: "DELETE" });
   }
 
-  function $patch<T = never>(
-    endpoint: NitroFetchRequest,
-    options?: FetchOptions,
-  ): Promise<T> {
-    return new Promise((resolve, reject) => {
-      $service({ ...options, method: "PATCH" })(endpoint)
-        // eslint-disable-next-line
-        .then((response: T | any) => {
-          resolve(response);
-        })
-        .catch((error) => reject(error.response));
-    });
-  }
-
-  function $delete<T = never>(
-    endpoint: NitroFetchRequest,
-    options?: FetchOptions,
-  ): Promise<T> {
-    return new Promise((resolve, reject) => {
-      $service({ ...options, method: "DELETE" })(endpoint)
-        // eslint-disable-next-line
-        .then((response: T | any) => {
-          resolve(response);
-        })
-        .catch((error) => reject(error.response));
-    });
-  }
-
-  return {
-    baseURL,
-    $get,
-    $post,
-    $put,
-    $patch,
-    $delete,
-  };
-};
+  return { get, post, put, patch, delete: $delete, $api };
+}

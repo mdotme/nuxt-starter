@@ -5,16 +5,24 @@
 </template>
 
 <script lang="ts" setup>
-const $route = useRoute();
-const $api = useApi();
+const route = useRoute();
+const api = useApi();
 
-const data = await useAsyncData(async () => {
-  try {
-    return $api.$get(`/todos/${$route.params.id}`);
-  } catch {
-    showError({
-      statusCode: 404,
-    });
-  }
+const { data, error } = await useAsyncData(() =>
+  api.get<{
+    userId: number;
+    id: number;
+    title: string;
+    completed: boolean;
+  }>(`/todos/${route.params.id}`),
+);
+if (error.value) {
+  showError({
+    statusCode: 404,
+  });
+}
+
+useSeoMeta({
+  title: data.value?.title,
 });
 </script>
