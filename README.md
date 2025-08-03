@@ -1,6 +1,6 @@
-# ✨ Nuxt 3 starter ✨
+# ✨ Nuxt 4 starter ✨
 
-This is a boilerplate for starting Nuxt3 projects with Vite, TypeScript, ESLint, Tailwind CSS, Pinia and Docker.
+This is a boilerplate for starting Nuxt4 projects with Vite, TypeScript, ESLint, Tailwind CSS, Pinia and Docker.
 
 ## Features
 
@@ -56,7 +56,7 @@ cp .env.example .env
 
 ## Project structure
 
-Sample flat project structure for Nuxt3. If your project is more complex and bigger than simple landing page consider using [Nuxt layers](https://nuxt.com/docs/getting-started/layers).
+Sample flat project structure for Nuxt4. If your project is more complex and bigger than simple landing page consider using [Nuxt layers](https://nuxt.com/docs/getting-started/layers).
 
 Sample vue file:
 
@@ -106,64 +106,71 @@ const
 Directories & Files:
 
 ```
+
 /my-awesome-project
-  ├── assets/
-  │    ├── css/
-  │    ├── fonts/
-  │    └── images/
-  │
-  ├── composables/
-  │    ├── useApi.ts
-  │    ├── useApiFetch.ts
-  │
-  ├── layouts/
-  │    ├── default.vue
-  │    └── auth.vue
-  │
-  ├── middleware/
-  │    └── auth.global.ts
-  │
-  ├── pages/
-  │    ├── index.vue
-  │    ├── login.vue
-  │    ├── register.vue
-  │    └── profile.vue
-  │
-  ├── plugins/
-  │    └── api.ts
+  ├── app/
+  │    ├── assets/
+  │    │    ├── css/
+  │    │    ├── fonts/
+  │    │    └── images/
+  │    │
+  │    ├── components/
+  │    │    ├── Auth/
+  │    │    │    ├── LoginForm.vue
+  │    │    │    └── RegisterForm.vue
+  │    │    └── User/
+  │    │         └── ProfileCard.vue
+  │    │
+  │    ├── composables/
+  │    │    ├── useApi.ts
+  │    │    ├── useApiFetch.ts
+  │    │
+  │    ├── constants/
+  │    │    ├── maska.const.ts
+  │    │    └── regexes.const.ts
+  │    │
+  │    ├── layouts/
+  │    │    ├── default.vue
+  │    │    └── auth.vue
+  │    │
+  │    ├── middleware/
+  │    │    └── auth.global.ts
+  │    │
+  │    ├── pages/
+  │    │    ├── index.vue
+  │    │    ├── login.vue
+  │    │    ├── register.vue
+  │    │    └── profile.vue
+  │    │
+  │    ├── plugins/
+  │    │    └── api.ts
+  │    │
+  │    ├── stores/
+  │    │    ├── auth.store.ts
+  │    │    └── user.store.ts
+  │    │
+  │    ├── types/
+  │    │    ├── auth.types.ts
+  │    │    ├── common.types.ts
+  │    │    └── enums/
+  │    │         ├── roles.enum.ts
+  │    │         └── status.enum.ts
+  │    │
+  │    ├── utils/
+  │    │    ├── sum.util.ts
+  │    │    └── format-date.util.ts
+  │    │
+  │    ├── app.vue
+  │    └── error.vue
   │
   ├── public/
   │    └── favicon.ico
   │
-  ├── stores/
-  │    ├── auth.store.ts
-  │    └── user.store.ts
+  ├── server/
+  │    └── api/ (or any backend logic)
   │
-  ├── types/
-  │    ├── auth.types.ts
-  │    ├── common.types.ts
-  │    └── enums/
-  │         ├── roles.enum.ts
-  │         └── status.enum.ts
-  │
-  ├── components/
-  │    ├── Auth/
-  │    │    ├── LoginForm.vue
-  │    │    └── RegisterForm.vue
-  │    └── User/
-  │         └── ProfileCard.vue
-  │
-  ├── utils/
-  │    ├── sum.util.ts
-  │    └── format-date.util.ts
-  │
-  ├── constants/
-  │    ├── maska.const.ts
-  │    └── regexes.const.ts
-  │
-  ├── app.vue
-  ├── error.vue
   ├── nuxt.config.ts
+  └── package.json
   ...
 ```
 
@@ -174,7 +181,7 @@ Directories & Files:
 - Enums must be inside types directory and `kebab-case.enum.ts` with enum suffix
 - Directories and component names inside `components/` directory all must be `Pascal/Case.vue`
 - Utilities must be `kebab-case.util.ts` with util prefix
-- Constants must be `kebab-case.const.ts` with const prefix
+- Constants must be `kebab-case.const.ts` with const prefix & must use uppercase variable naming: `const RGX_PHONE = /^\d{10,15}$/`
 
 ## Contributing
 

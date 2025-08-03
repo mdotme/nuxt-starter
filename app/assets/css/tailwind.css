@@ -1,0 +1,16 @@
+@import "tailwindcss";
+/* @import "tailwindcss" prefix(tw); For prefixing */
+
+@theme {
+  --color-primary: var(--color-emerald-500);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
