@@ -1,7 +1,7 @@
 <template>
   <div>
     <NuxtLoadingIndicator />
-    <header class="bg-green-100">
+    <header class="bg-primary">
       <nav>
         <ul>
           <li>
@@ -12,9 +12,9 @@
         </ul>
       </nav>
     </header>
+
     <NuxtPage />
+
     <footer>Some copyright things</footer>
   </div>
 </template>
-
-<script setup lang="ts"></script>

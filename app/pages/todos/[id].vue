@@ -1,14 +1,9 @@
-<template>
-  <pre>
-    {{ data }}
-  </pre>
-</template>
-
 <script lang="ts" setup>
 const route = useRoute();
 const api = useApi();
 
-const { data, error } = await useAsyncData(() =>
+const asyncKey = computed(() => `todo-single-${route.params.id}`);
+const { data, error } = await useAsyncData(asyncKey, () =>
   api.get<{
     userId: number;
     id: number;
@@ -26,3 +21,9 @@ useSeoMeta({
   title: data.value?.title,
 });
 </script>
+
+<template>
+  <pre>
+    {{ data }}
+  </pre>
+</template>
