@@ -1,6 +1,6 @@
 # ✨ Nuxt 4 starter ✨
 
-This is a boilerplate for starting Nuxt4 projects with Vite, TypeScript, ESLint, Tailwind CSS, Pinia and Docker.
+This is a boilerplate for starting Nuxt4 projects with Vite, TypeScript, ESLint, Tailwind CSS and Pinia
 
 ## Features
 
@@ -9,7 +9,6 @@ This is a boilerplate for starting Nuxt4 projects with Vite, TypeScript, ESLint,
 - **ESLint & Stylistic 🧹**: Maintain code quality and consistency with ESLint (Flat config) and Stylistic.
 - **Tailwind CSS 🌬️**: Rapidly build custom user interfaces with Tailwind CSS.
 - **Pinia 🍍**: Best store for Vue & Nuxt.
-- **Docker 🐳**: Containerize your application for easy deployment and scalability.
 - **Custom Composables 🛠️**: Simplify API handling and metadata management with custom composable utilities like `useApi`.
 
 ## Prerequisites
@@ -18,7 +17,6 @@ Before getting started, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/) (v20 or higher but LTS `v22.14` recommended)
 - [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/) or [Yarn](https://yarnpkg.com/) package manager (pnpm recommended)
-- [Docker](https://www.docker.com/) (if you plan to use Docker for containerization)
 
 ## Installation
 

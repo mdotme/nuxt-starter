@@ -1,9 +1,0 @@
-services:
-  nuxt-starter-app:
-    container_name: nuxt-starter
-    restart: always
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - ${PORT}:${PORT}
