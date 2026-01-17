@@ -1,17 +1,35 @@
+<script setup lang="ts">
+import type { NavigationMenuItem } from "@nuxt/ui";
+
+const items = computed<NavigationMenuItem[]>(() => [
+  {
+    label: "Index",
+    to: "/",
+  },
+  {
+    label: "About",
+    to: "/about",
+  },
+  {
+    label: "To-Do single",
+    to: "/todos/1",
+  },
+  {
+    icon: "i-lucide-github",
+    label: "Repo",
+    to: "https://manuchehr.me/r/nuxt-starter",
+    target: "_blank",
+  },
+]);
+</script>
+
 <template>
   <div>
-    <NuxtLoadingIndicator />
-    <header class="bg-primary">
-      <nav>
-        <ul>
-          <li>
-            <RouterLink to="/"> Home </RouterLink>
-            <RouterLink to="/about"> About </RouterLink>
-            <RouterLink to="/todos/1"> Todo single </RouterLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <NuxtLoadingIndicator color="var(--color-primary)" />
+
+    <UHeader :items>
+      <UNavigationMenu :items="items" />
+    </UHeader>
 
     <NuxtPage />
 
