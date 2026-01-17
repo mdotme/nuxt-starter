@@ -15,7 +15,7 @@ This is a boilerplate for starting Nuxt4 projects with Vite, TypeScript, ESLint,
 
 Before getting started, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v20 or higher but LTS `v22.14` recommended)
+- [Node.js](https://nodejs.org/) (v22 or higher but LTS `v22.14` recommended)
 - [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/) or [Yarn](https://yarnpkg.com/) package manager (pnpm recommended)
 
 ## Installation
@@ -26,13 +26,19 @@ Before getting started, ensure you have the following installed:
 git clone https://github.com/mdotme/nuxt-starter my-awesome-project
 ```
 
-2. Navigate to the cloned directory:
+1. Navigate to the cloned directory:
 
 ```bash
 cd my-awesome-project
 ```
 
-3. Install deps:
+1. Enable `corepack`
+
+```bash
+corepack enable
+```
+
+1. Install deps:
 
 ```bash
 pnpm i
@@ -47,7 +53,7 @@ pnpm i
 cp .env.example .env
 ```
 
-3. Modify `.env`.
+1. Modify `.env`.
 
 - **ESLint & Prettier**: Configuration files for ESLint in `eslint.config.mts` file.
 - **Tailwind CSS**: Customize Tailwind CSS settings in the `./assets/css/tailwind.css` file.
