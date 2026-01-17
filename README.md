@@ -10,6 +10,7 @@ This is a boilerplate for starting Nuxt4 projects with Vite, TypeScript, ESLint,
 - **Tailwind CSS 🌬️**: Rapidly build custom user interfaces with Tailwind CSS.
 - **Pinia 🍍**: Best store for Vue & Nuxt.
 - **Custom Composables 🛠️**: Simplify API handling and metadata management with custom composable utilities like `useApi`.
+- Nuxt UI ✨
 
 ## Prerequisites
 
