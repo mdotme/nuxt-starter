@@ -4,6 +4,7 @@ import withNuxt from "./.nuxt/eslint.config.mjs";
 
 export default withNuxt({
   files: [
+    // "./assets/**/*.css",
     "./composables/**/*.{ts,tsx}",
     "./components/**/*.{vue,ts,tsx}",
     "./layouts/**/*.vue",
@@ -19,9 +20,20 @@ export default withNuxt({
   ],
   rules: {
     "no-console": "warn",
+    "no-warning-comments": [
+      "warn",
+      {
+        terms: ["fix", "fixme", "testing", "noprod"],
+        location: "anywhere",
+      },
+    ],
   },
 })
-  .prepend(prettierPlug, simpleImportSort.configs)
+  .prepend(prettierPlug, {
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
+  })
   .override("nuxt/typescript/rules", {
     rules: {
       "@typescript-eslint/no-unused-vars": "warn",
