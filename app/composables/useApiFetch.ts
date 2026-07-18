@@ -1,8 +1,8 @@
-import type { UseFetchOptions } from "#app";
+import type { UseFetchOptions } from '#app';
 
 export function useApiFetch<T = unknown>(
   url: string | (() => string),
-  options?: UseFetchOptions<T>,
+  options?: UseFetchOptions<T>
 ) {
   return useFetch(url, {
     ...options,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NuxtError } from "#app";
+import type { NuxtError } from '#app';
 
 interface Props {
   error: NuxtError;

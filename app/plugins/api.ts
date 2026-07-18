@@ -4,6 +4,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   const api = $fetch.create({
     baseURL: config.public.apiBase,
   });
-  nuxtApp.provide("api", api);
+  nuxtApp.provide('api', api);
   // Your logic goes here
 });
