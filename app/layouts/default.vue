@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from "@nuxt/ui";
+import type { NavigationMenuItem } from '@nuxt/ui';
 
 const items = computed<NavigationMenuItem[]>(() => [
   {
-    label: "Index",
-    to: "/",
+    label: 'Index',
+    to: '/',
   },
   {
-    label: "About",
-    to: "/about",
+    label: 'About',
+    to: '/about',
   },
   {
-    label: "To-Do single",
-    to: "/todos/1",
+    label: 'To-Do single',
+    to: '/todos/1',
   },
   {
-    icon: "i-lucide-github",
-    label: "Repo",
-    to: "https://manuchehr.me/r/nuxt-starter",
-    target: "_blank",
+    icon: 'i-lucide-github',
+    label: 'Repo',
+    to: 'https://manuchehr.me/r/nuxt-starter',
+    target: '_blank',
   },
 ]);
 </script>
