@@ -6,18 +6,43 @@
 .cache
 dist
 
+# Local Nitro runtime storages, sqlite caches, and KV stores
+.kv
+.sqlite
+# Local dev tools state caches
+.nuxt-devtools
+
 # Node dependencies
 node_modules
 
 # Logs
 logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Misc
+# OS / System Files
 .DS_Store
+Thumbs.db
+
+# IDEs
 .fleet
 .idea
 .vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Neovim
+.nvimrc
+.exrc
+*.swp
+*.swo
+.netrwhist
 
 # Local env files
 .env

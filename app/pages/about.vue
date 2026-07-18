@@ -6,7 +6,7 @@ const mainStore = useMainStore();
   <div>
     <h1>I'm about page</h1>
     <UButton size="xl" @click="mainStore.increase()">
-      Count: {{ mainStore.getCount }}
+      Count: {{ mainStore.count }}
     </UButton>
   </div>
 </template>

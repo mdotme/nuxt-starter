@@ -9,7 +9,7 @@ const { data, error } = await useAsyncData(asyncKey, () =>
     id: number;
     title: string;
     completed: boolean;
-  }>(`/todos/${route.params.id}`),
+  }>(`/todos/${route.params.id}`)
 );
 if (error.value) {
   showError({

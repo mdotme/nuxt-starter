@@ -1,6 +1,6 @@
-import type { $Fetch } from "ofetch";
+import type { $Fetch } from 'ofetch';
 
-declare module "#app" {
+declare module '#app' {
   interface NuxtApp {
     $api: $Fetch;
   }
