@@ -5,8 +5,6 @@ const mainStore = useMainStore();
 <template>
   <div>
     <h1>I'm about page</h1>
-    <button @click="mainStore.increase()">
-      Count: {{ mainStore.getCount }}
-    </button>
+    <button @click="mainStore.increase()">Count: {{ mainStore.count }}</button>
   </div>
 </template>
